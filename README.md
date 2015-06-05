@@ -7,6 +7,8 @@ Usage
 --------------------
 
 ```lisp
+(require 'gimei)
+
 (setq name (gimei:new-name))
 (gimei:kanji name)          ;; "浅野 深桜"
 (gimei:hiragana name)       ;; "あさの みお"
