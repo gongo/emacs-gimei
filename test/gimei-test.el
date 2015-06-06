@@ -55,3 +55,14 @@
        (should (string-equal "おきなわけんおきなわしおきなわ" (gimei:address:hiragana-of address)))
        (should (string-equal "オキナワケンオキナワシオキナワ" (gimei:address:katakana-of address)))
        ))))
+
+(ert-deftest gimei:abbr-getter ()
+  (in-my-fixture
+   (lambda ()
+     (should (stringp (gimei:kanji)))
+     (should (stringp (gimei:hiragana)))
+     (should (stringp (gimei:katakana)))
+     (should (stringp (gimei:address:kanji)))
+     (should (stringp (gimei:address:hiragana)))
+     (should (stringp (gimei:address:katakana)))
+     )))
