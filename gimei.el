@@ -51,86 +51,86 @@
   city
   town)
 
-(defun gimei:first:kanji (gn)
+(defun gimei:first:kanji-of (gn)
   (nth 0 (gimei:name-firstname gn)))
 
-(defun gimei:first:hiragana (gn)
+(defun gimei:first:hiragana-of (gn)
   (nth 1 (gimei:name-firstname gn)))
 
-(defun gimei:first:katakana (gn)
+(defun gimei:first:katakana-of (gn)
   (nth 2 (gimei:name-firstname gn)))
 
-(defun gimei:last:kanji (gn)
+(defun gimei:last:kanji-of (gn)
   (nth 0 (gimei:name-lastname gn)))
 
-(defun gimei:last:hiragana (gn)
+(defun gimei:last:hiragana-of (gn)
   (nth 1 (gimei:name-lastname gn)))
 
-(defun gimei:last:katakana (gn)
+(defun gimei:last:katakana-of (gn)
   (nth 2 (gimei:name-lastname gn)))
 
-(defun gimei:prefecture:kanji (ga)
+(defun gimei:prefecture:kanji-of (ga)
   (nth 0 (gimei:address-prefecture ga)))
 
-(defun gimei:prefecture:hiragana (ga)
+(defun gimei:prefecture:hiragana-of (ga)
   (nth 1 (gimei:address-prefecture ga)))
 
-(defun gimei:prefecture:katakana (ga)
+(defun gimei:prefecture:katakana-of (ga)
   (nth 2 (gimei:address-prefecture ga)))
 
-(defun gimei:city:kanji (ga)
+(defun gimei:city:kanji-of (ga)
   (nth 0 (gimei:address-city ga)))
 
-(defun gimei:city:hiragana (ga)
+(defun gimei:city:hiragana-of (ga)
   (nth 1 (gimei:address-city ga)))
 
-(defun gimei:city:katakana (ga)
+(defun gimei:city:katakana-of (ga)
   (nth 2 (gimei:address-city ga)))
 
-(defun gimei:town:kanji (ga)
+(defun gimei:town:kanji-of (ga)
   (nth 0 (gimei:address-town ga)))
 
-(defun gimei:town:hiragana (ga)
+(defun gimei:town:hiragana-of (ga)
   (nth 1 (gimei:address-town ga)))
 
-(defun gimei:town:katakana (ga)
+(defun gimei:town:katakana-of (ga)
   (nth 2 (gimei:address-town ga)))
 
-(cl-defun gimei:kanji (gn &optional (delim " "))
-  (concat (gimei:last:kanji gn)
+(cl-defun gimei:kanji-of (gn &optional (delim " "))
+  (concat (gimei:last:kanji-of gn)
           delim
-          (gimei:first:kanji gn)))
+          (gimei:first:kanji-of gn)))
 
-(cl-defun gimei:hiragana (gn &optional (delim " "))
-  (concat (gimei:last:hiragana gn)
+(cl-defun gimei:hiragana-of (gn &optional (delim " "))
+  (concat (gimei:last:hiragana-of gn)
           delim
-          (gimei:first:hiragana gn)))
+          (gimei:first:hiragana-of gn)))
 
-(cl-defun gimei:katakana (gn &optional (delim " "))
-  (concat (gimei:last:katakana gn)
+(cl-defun gimei:katakana-of (gn &optional (delim " "))
+  (concat (gimei:last:katakana-of gn)
           delim
-          (gimei:first:katakana gn)))
+          (gimei:first:katakana-of gn)))
 
-(cl-defun gimei:address:kanji (ga &optional (delim ""))
-  (concat (gimei:prefecture:kanji ga)
+(cl-defun gimei:address:kanji-of (ga &optional (delim ""))
+  (concat (gimei:prefecture:kanji-of ga)
           delim
-          (gimei:city:kanji ga)
+          (gimei:city:kanji-of ga)
           delim
-          (gimei:town:kanji ga)))
+          (gimei:town:kanji-of ga)))
 
-(cl-defun gimei:address:hiragana (ga &optional (delim ""))
-  (concat (gimei:prefecture:hiragana ga)
+(cl-defun gimei:address:hiragana-of (ga &optional (delim ""))
+  (concat (gimei:prefecture:hiragana-of ga)
           delim
-          (gimei:city:hiragana ga)
+          (gimei:city:hiragana-of ga)
           delim
-          (gimei:town:hiragana ga)))
+          (gimei:town:hiragana-of ga)))
 
-(cl-defun gimei:address:katakana (ga &optional (delim ""))
-  (concat (gimei:prefecture:katakana ga)
+(cl-defun gimei:address:katakana-of (ga &optional (delim ""))
+  (concat (gimei:prefecture:katakana-of ga)
           delim
-          (gimei:city:katakana ga)
+          (gimei:city:katakana-of ga)
           delim
-          (gimei:town:katakana ga)))
+          (gimei:town:katakana-of ga)))
 
 (defun gimei--load-data ()
   (unless gimei->names
