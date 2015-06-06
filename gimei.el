@@ -56,121 +56,121 @@
   city
   town)
 
-(defun gimei:first:kanji-of (gn)
+(defun gimei/first:kanji-of (gn)
   (nth 0 (gimei:name-firstname gn)))
 
-(defun gimei:first:hiragana-of (gn)
+(defun gimei/first:hiragana-of (gn)
   (nth 1 (gimei:name-firstname gn)))
 
-(defun gimei:first:katakana-of (gn)
+(defun gimei/first:katakana-of (gn)
   (nth 2 (gimei:name-firstname gn)))
 
-(defun gimei:last:kanji-of (gn)
+(defun gimei/last:kanji-of (gn)
   (nth 0 (gimei:name-lastname gn)))
 
-(defun gimei:last:hiragana-of (gn)
+(defun gimei/last:hiragana-of (gn)
   (nth 1 (gimei:name-lastname gn)))
 
-(defun gimei:last:katakana-of (gn)
+(defun gimei/last:katakana-of (gn)
   (nth 2 (gimei:name-lastname gn)))
 
-(defun gimei:male-p (gn)
+(defun gimei/male-p (gn)
   (eq (gimei:name-sex gn) gimei->male))
 
-(defun gimei:female-p (gn)
+(defun gimei/female-p (gn)
   (eq (gimei:name-sex gn) gimei->female))
 
-(defun gimei:prefecture:kanji-of (ga)
+(defun gimei/address:prefecture:kanji-of (ga)
   (nth 0 (gimei:address-prefecture ga)))
 
-(defun gimei:prefecture:hiragana-of (ga)
+(defun gimei/address:prefecture:hiragana-of (ga)
   (nth 1 (gimei:address-prefecture ga)))
 
-(defun gimei:prefecture:katakana-of (ga)
+(defun gimei/address:prefecture:katakana-of (ga)
   (nth 2 (gimei:address-prefecture ga)))
 
-(defun gimei:city:kanji-of (ga)
+(defun gimei/address:city:kanji-of (ga)
   (nth 0 (gimei:address-city ga)))
 
-(defun gimei:city:hiragana-of (ga)
+(defun gimei/address:city:hiragana-of (ga)
   (nth 1 (gimei:address-city ga)))
 
-(defun gimei:city:katakana-of (ga)
+(defun gimei/address:city:katakana-of (ga)
   (nth 2 (gimei:address-city ga)))
 
-(defun gimei:town:kanji-of (ga)
+(defun gimei/address:town:kanji-of (ga)
   (nth 0 (gimei:address-town ga)))
 
-(defun gimei:town:hiragana-of (ga)
+(defun gimei/address:town:hiragana-of (ga)
   (nth 1 (gimei:address-town ga)))
 
-(defun gimei:town:katakana-of (ga)
+(defun gimei/address:town:katakana-of (ga)
   (nth 2 (gimei:address-town ga)))
 
-(cl-defun gimei:kanji-of (gn &optional (delim " "))
-  (concat (gimei:last:kanji-of gn)
+(cl-defun gimei/kanji-of (gn &optional (delim " "))
+  (concat (gimei/last:kanji-of gn)
           delim
-          (gimei:first:kanji-of gn)))
+          (gimei/first:kanji-of gn)))
 
-(cl-defun gimei:hiragana-of (gn &optional (delim " "))
-  (concat (gimei:last:hiragana-of gn)
+(cl-defun gimei/hiragana-of (gn &optional (delim " "))
+  (concat (gimei/last:hiragana-of gn)
           delim
-          (gimei:first:hiragana-of gn)))
+          (gimei/first:hiragana-of gn)))
 
-(cl-defun gimei:katakana-of (gn &optional (delim " "))
-  (concat (gimei:last:katakana-of gn)
+(cl-defun gimei/katakana-of (gn &optional (delim " "))
+  (concat (gimei/last:katakana-of gn)
           delim
-          (gimei:first:katakana-of gn)))
+          (gimei/first:katakana-of gn)))
 
-(cl-defun gimei:address:kanji-of (ga &optional (delim ""))
-  (concat (gimei:prefecture:kanji-of ga)
+(cl-defun gimei/address:kanji-of (ga &optional (delim ""))
+  (concat (gimei/address:prefecture:kanji-of ga)
           delim
-          (gimei:city:kanji-of ga)
+          (gimei/address:city:kanji-of ga)
           delim
-          (gimei:town:kanji-of ga)))
+          (gimei/address:town:kanji-of ga)))
 
-(cl-defun gimei:address:hiragana-of (ga &optional (delim ""))
-  (concat (gimei:prefecture:hiragana-of ga)
+(cl-defun gimei/address:hiragana-of (ga &optional (delim ""))
+  (concat (gimei/address:prefecture:hiragana-of ga)
           delim
-          (gimei:city:hiragana-of ga)
+          (gimei/address:city:hiragana-of ga)
           delim
-          (gimei:town:hiragana-of ga)))
+          (gimei/address:town:hiragana-of ga)))
 
-(cl-defun gimei:address:katakana-of (ga &optional (delim ""))
-  (concat (gimei:prefecture:katakana-of ga)
+(cl-defun gimei/address:katakana-of (ga &optional (delim ""))
+  (concat (gimei/address:prefecture:katakana-of ga)
           delim
-          (gimei:city:katakana-of ga)
+          (gimei/address:city:katakana-of ga)
           delim
-          (gimei:town:katakana-of ga)))
+          (gimei/address:town:katakana-of ga)))
 
-(cl-defun gimei:kanji (&optional (delim ""))
-  (gimei:kanji-of (gimei:new-name) delim))
+(cl-defun gimei/kanji (&optional (delim ""))
+  (gimei/kanji-of (gimei/new-name) delim))
 
-(cl-defun gimei:hiragana (&optional (delim ""))
-  (gimei:hiragana-of (gimei:new-name) delim))
+(cl-defun gimei/hiragana (&optional (delim ""))
+  (gimei/hiragana-of (gimei/new-name) delim))
 
-(cl-defun gimei:katakana (&optional (delim ""))
-  (gimei:katakana-of (gimei:new-name) delim))
+(cl-defun gimei/katakana (&optional (delim ""))
+  (gimei/katakana-of (gimei/new-name) delim))
 
-(cl-defun gimei:address:kanji (&optional (delim ""))
-  (gimei:address:kanji-of (gimei:new-address) delim))
+(cl-defun gimei/address:kanji (&optional (delim ""))
+  (gimei/address:kanji-of (gimei/new-address) delim))
 
-(cl-defun gimei:address:hiragana (&optional (delim ""))
-  (gimei:address:hiragana-of (gimei:new-address) delim))
+(cl-defun gimei/address:hiragana (&optional (delim ""))
+  (gimei/address:hiragana-of (gimei/new-address) delim))
 
-(cl-defun gimei:address:katakana (&optional (delim ""))
-  (gimei:address:katakana-of (gimei:new-address) delim))
+(cl-defun gimei/address:katakana (&optional (delim ""))
+  (gimei/address:katakana-of (gimei/new-address) delim))
 
 (defun gimei--load-data ()
   (unless gimei->names
     (load-library gimei->data-path)))
 
-(defun gimei:new-name ()
+(defun gimei/new-name ()
   (if (zerop (random 2))
-      (gimei:new-male)
-    (gimei:new-female)))
+      (gimei/new-male)
+    (gimei/new-female)))
 
-(defun gimei:new-male ()
+(defun gimei/new-male ()
   (gimei--load-data)
   (let ((first-names (cdr (assoc "male" (assoc "first-name" gimei->names))))
         (last-names (cdr (assoc "last-name" gimei->names))))
@@ -179,7 +179,7 @@
      :lastname (nth (random (length last-names)) last-names)
      :sex gimei->male)))
 
-(defun gimei:new-female ()
+(defun gimei/new-female ()
   (gimei--load-data)
   (let ((first-names (cdr (assoc "female" (assoc "first-name" gimei->names))))
         (last-names (cdr (assoc "last-name" gimei->names))))
@@ -188,7 +188,7 @@
      :lastname (nth (random (length last-names)) last-names)
      :sex gimei->female)))
 
-(defun gimei:new-address ()
+(defun gimei/new-address ()
   (gimei--load-data)
   (let ((prefectures (cdr (assoc "prefecture" gimei->addresses)))
         (cities (cdr (assoc "city" gimei->addresses)))
