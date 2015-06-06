@@ -22,6 +22,15 @@ Usage
 
 (gimei:kanji (gimei:new-male))   ;; "篠田 繁夫"
 (gimei:kanji (gimei:new-female)) ;; "稲葉 澪"
+
+(setq address (gimei:new-address))
+(gimei:address:kanji address)    ;; "山梨県杵築市宮浦"
+(gimei:address:hiragana address) ;; "やまなしけんきつきしみやのうら"
+(gimei:address:katakana address) ;; "ヤマナシケンキツキシミヤノウラ"
+
+(gimei:prefecture:kanji address) ;; "山梨県"
+(gimei:city:hiragana address)    ;;"きつきし"
+(gimei:town:katakana address)    ;; "ミヤノウラ"
 ```
 
 SEE ALSO

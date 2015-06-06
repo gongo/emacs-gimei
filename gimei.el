@@ -46,6 +46,11 @@
   firstname
   lastname)
 
+(cl-defstruct gimei:address
+  prefecture
+  city
+  town)
+
 (defun gimei:first:kanji (gn)
   (nth 0 (gimei:name-firstname gn)))
 
@@ -64,6 +69,33 @@
 (defun gimei:last:katakana (gn)
   (nth 2 (gimei:name-lastname gn)))
 
+(defun gimei:prefecture:kanji (ga)
+  (nth 0 (gimei:address-prefecture ga)))
+
+(defun gimei:prefecture:hiragana (ga)
+  (nth 1 (gimei:address-prefecture ga)))
+
+(defun gimei:prefecture:katakana (ga)
+  (nth 2 (gimei:address-prefecture ga)))
+
+(defun gimei:city:kanji (ga)
+  (nth 0 (gimei:address-city ga)))
+
+(defun gimei:city:hiragana (ga)
+  (nth 1 (gimei:address-city ga)))
+
+(defun gimei:city:katakana (ga)
+  (nth 2 (gimei:address-city ga)))
+
+(defun gimei:town:kanji (ga)
+  (nth 0 (gimei:address-town ga)))
+
+(defun gimei:town:hiragana (ga)
+  (nth 1 (gimei:address-town ga)))
+
+(defun gimei:town:katakana (ga)
+  (nth 2 (gimei:address-town ga)))
+
 (cl-defun gimei:kanji (gn &optional (delim " "))
   (concat (gimei:last:kanji gn)
           delim
@@ -78,6 +110,27 @@
   (concat (gimei:last:katakana gn)
           delim
           (gimei:first:katakana gn)))
+
+(cl-defun gimei:address:kanji (ga &optional (delim ""))
+  (concat (gimei:prefecture:kanji ga)
+          delim
+          (gimei:city:kanji ga)
+          delim
+          (gimei:town:kanji ga)))
+
+(cl-defun gimei:address:hiragana (ga &optional (delim ""))
+  (concat (gimei:prefecture:hiragana ga)
+          delim
+          (gimei:city:hiragana ga)
+          delim
+          (gimei:town:hiragana ga)))
+
+(cl-defun gimei:address:katakana (ga &optional (delim ""))
+  (concat (gimei:prefecture:katakana ga)
+          delim
+          (gimei:city:katakana ga)
+          delim
+          (gimei:town:katakana ga)))
 
 (defun gimei--load-data ()
   (unless gimei->names
@@ -103,5 +156,15 @@
     (make-gimei:name
      :firstname (nth (random (length first-names)) first-names)
      :lastname (nth (random (length last-names)) last-names))))
+
+(defun gimei:new-address ()
+  (gimei--load-data)
+  (let ((prefectures (cdr (assoc "prefecture" gimei->addresses)))
+        (cities (cdr (assoc "city" gimei->addresses)))
+        (towns (cdr (assoc "town" gimei->addresses))))
+    (make-gimei:address
+     :prefecture (nth (random (length prefectures)) prefectures)
+     :city (nth (random (length cities)) cities)
+     :town (nth (random (length towns)) towns))))
 
 (provide 'gimei)
