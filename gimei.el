@@ -37,6 +37,7 @@
 (require 'cl-lib)
 
 (defvar gimei->names nil)
+(defvar gimei->addresses nil)
 
 (defvar gimei->data-path
   (let ((current-dir (file-name-directory (or load-file-name (buffer-file-name)))))
