@@ -42,9 +42,13 @@
   (let ((current-dir (file-name-directory (or load-file-name (buffer-file-name)))))
     (concat current-dir "gimei-data")))
 
+(defconst gimei->male :gimei-male)
+(defconst gimei->female :gimei-female)
+
 (cl-defstruct gimei:name
   firstname
-  lastname)
+  lastname
+  sex)
 
 (cl-defstruct gimei:address
   prefecture
@@ -68,6 +72,12 @@
 
 (defun gimei:last:katakana-of (gn)
   (nth 2 (gimei:name-lastname gn)))
+
+(defun gimei:male-p (gn)
+  (eq (gimei:name-sex gn) gimei->male))
+
+(defun gimei:female-p (gn)
+  (eq (gimei:name-sex gn) gimei->female))
 
 (defun gimei:prefecture:kanji-of (ga)
   (nth 0 (gimei:address-prefecture ga)))
@@ -165,7 +175,8 @@
         (last-names (cdr (assoc "last-name" gimei->names))))
     (make-gimei:name
      :firstname (nth (random (length first-names)) first-names)
-     :lastname (nth (random (length last-names)) last-names))))
+     :lastname (nth (random (length last-names)) last-names)
+     :sex gimei->male)))
 
 (defun gimei:new-female ()
   (gimei--load-data)
@@ -173,7 +184,8 @@
         (last-names (cdr (assoc "last-name" gimei->names))))
     (make-gimei:name
      :firstname (nth (random (length first-names)) first-names)
-     :lastname (nth (random (length last-names)) last-names))))
+     :lastname (nth (random (length last-names)) last-names)
+     :sex gimei->female)))
 
 (defun gimei:new-address ()
   (gimei--load-data)

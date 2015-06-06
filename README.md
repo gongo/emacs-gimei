@@ -27,6 +27,9 @@ Usage
 (gimei:kanji-of (gimei:new-male))   ;; "篠田 繁夫"
 (gimei:kanji-of (gimei:new-female)) ;; "稲葉 澪"
 
+(gimei:male-p   (gimei:new-male))   ;; t
+(gimei:female-p (gimei:new-female)) ;; t
+
 ;;
 ;; Generate address
 ;;
