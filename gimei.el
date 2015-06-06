@@ -38,7 +38,7 @@
 
 (defvar gimei->names nil)
 
-(defvar gimei->names-data-path
+(defvar gimei->data-path
   (let ((current-dir (file-name-directory (or load-file-name (buffer-file-name)))))
     (concat current-dir "gimei-data")))
 
@@ -134,7 +134,7 @@
 
 (defun gimei--load-data ()
   (unless gimei->names
-    (load-library gimei->names-data-path)))
+    (load-library gimei->data-path)))
 
 (defun gimei:new-name ()
   (if (zerop (random 2))
