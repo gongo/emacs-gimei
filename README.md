@@ -1,6 +1,9 @@
 emacs-gimei
 ====================
 
+[![Build Status](https://travis-ci.org/gongo/emacs-gimei.svg?branch=master)](https://travis-ci.org/gongo/emacs-gimei)
+[![Coverage Status](https://coveralls.io/repos/gongo/emacs-gimei/badge.svg)](https://coveralls.io/r/gongo/emacs-gimei)
+
 Emacs Lisp port of [willnet/gimei](https://github.com/willnet/gimei).
 
 Usage
