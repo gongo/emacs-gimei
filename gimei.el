@@ -132,6 +132,24 @@
           delim
           (gimei:town:katakana-of ga)))
 
+(cl-defun gimei:kanji (&optional (delim ""))
+  (gimei:kanji-of (gimei:new-name) delim))
+
+(cl-defun gimei:hiragana (&optional (delim ""))
+  (gimei:hiragana-of (gimei:new-name) delim))
+
+(cl-defun gimei:katakana (&optional (delim ""))
+  (gimei:katakana-of (gimei:new-name) delim))
+
+(cl-defun gimei:address:kanji (&optional (delim ""))
+  (gimei:address:kanji-of (gimei:new-address) delim))
+
+(cl-defun gimei:address:hiragana (&optional (delim ""))
+  (gimei:address:hiragana-of (gimei:new-address) delim))
+
+(cl-defun gimei:address:katakana (&optional (delim ""))
+  (gimei:address:katakana-of (gimei:new-address) delim))
+
 (defun gimei--load-data ()
   (unless gimei->names
     (load-library gimei->data-path)))

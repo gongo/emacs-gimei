@@ -9,6 +9,10 @@ Usage
 ```lisp
 (require 'gimei)
 
+;;
+;; Generate name
+;;
+
 (setq name (gimei:new-name))
 (gimei:kanji-of name)          ;; "浅野 深桜"
 (gimei:hiragana-of name)       ;; "あさの みお"
@@ -23,6 +27,10 @@ Usage
 (gimei:kanji-of (gimei:new-male))   ;; "篠田 繁夫"
 (gimei:kanji-of (gimei:new-female)) ;; "稲葉 澪"
 
+;;
+;; Generate address
+;;
+
 (setq address (gimei:new-address))
 (gimei:address:kanji-of address)    ;; "山梨県杵築市宮浦"
 (gimei:address:hiragana-of address) ;; "やまなしけんきつきしみやのうら"
@@ -31,6 +39,18 @@ Usage
 (gimei:prefecture:kanji-of address) ;; "山梨県"
 (gimei:city:hiragana-of address)    ;;"きつきし"
 (gimei:town:katakana-of address)    ;; "ミヤノウラ"
+
+;;
+;; Else..
+;;
+
+(gimei:kanji)    ;; "宮原敏也"
+(gimei:hiragana) ;; "あだちてつ"
+(gimei:katakana) ;; "キシモトコタロウ"
+
+(gimei:address:kanji)    ;; "神奈川県河内長野市藤助新田"
+(gimei:address:hiragana) ;; "みえけんわたりぐんやまもとちょうきたじゅう"
+(gimei:address:katakana) ;; "オオサカフコユグンシントミチョウナカノバタチョウ"
 ```
 
 SEE ALSO
