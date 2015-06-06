@@ -11,7 +11,7 @@
       '(
         ("prefecture" ("沖縄県" "おきなわけん" "オキナワケン"))
         ("city" ("沖縄市" "おきなわし" "オキナワシ"))
-        ("town" ("沖縄" "おきなわ" "おきなわ"))
+        ("town" ("沖縄" "おきなわ" "オキナワ"))
         ))
 
 (defun in-my-fixture (body)
@@ -58,4 +58,33 @@
      (let ((name (gimei:new-male)))
        (should (string-equal "ヤマダ タロウ" (gimei:katakana-of name)))
        (should (string-equal "ヤマダ/タロウ" (gimei:katakana-of name "/")))
+       ))))
+
+(ert-deftest gimei:new-address ()
+  (in-my-fixture
+   (lambda ()
+     (should (gimei:address-p (gimei:new-address))))))
+
+(ert-deftest gimei:address:kanji-of ()
+  (in-my-fixture
+   (lambda ()
+     (let ((address (gimei:new-address)))
+       (should (string-equal "沖縄県沖縄市沖縄"   (gimei:address:kanji-of address)))
+       (should (string-equal "沖縄県/沖縄市/沖縄" (gimei:address:kanji-of address "/")))
+       ))))
+
+(ert-deftest gimei:address:hiragana-of ()
+  (in-my-fixture
+   (lambda ()
+     (let ((address (gimei:new-address)))
+       (should (string-equal "おきなわけんおきなわしおきなわ"   (gimei:address:hiragana-of address)))
+       (should (string-equal "おきなわけん/おきなわし/おきなわ" (gimei:address:hiragana-of address "/")))
+       ))))
+
+(ert-deftest gimei:address:katakana-of ()
+  (in-my-fixture
+   (lambda ()
+     (let ((address (gimei:new-address)))
+       (should (string-equal "オキナワケンオキナワシオキナワ"   (gimei:address:katakana-of address)))
+       (should (string-equal "オキナワケン/オキナワシ/オキナワ" (gimei:address:katakana-of address "/")))
        ))))
